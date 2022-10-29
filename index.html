@@ -1,0 +1,709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Enable Dark Mode in email client user agents -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>HTML Email</title>
+        <!--[if mso]>
+        <style>
+        table {border-collapse:collapse;border-spacing:0;border:none;margin:0;}
+        body{
+        background: #EEEEEE !important;
+        color:#59585b !important;
+        font-family: 'Roboto', sans-serif !important;
+        }
+        </style>
+        <noscript>
+        <xml>
+        <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        </noscript>
+    <![endif]-->
+        <style>
+            body{
+                font-family: 'Open Sans', sans-serif !important;
+                background: #EEEEEE !important;
+                color:#59585b !important;
+                border: none !important;
+            }
+            html,
+            body {
+                margin: 0 auto !important;
+                padding: 0 !important;
+                height: 100% !important;
+                width: 100% !important;
+            }
+            /* What it does: Stops email clients resizing small text. */
+            * {
+                -ms-text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+                font-family: 'Open Sans', sans-serif !important;
+            }
+            /* What it does: Centers email on Android 4.4 */
+            div[style*="margin: 16px 0"] {
+                margin:0 !important;
+            }
+            /* What it does: Stops Outlook from adding extra spacing to tables. */
+            table,
+            td {
+                mso-table-lspace: 0pt !important;
+                mso-table-rspace: 0pt !important;
+            }
+            /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+            table {
+                border-spacing: 0 !important;
+                border-collapse: collapse !important;
+                table-layout: fixed !important;
+                margin: 0 auto !important;
+            }
+            table table table {
+                table-layout: auto;
+            }
+            
+            /* for dark mode style */
+        /*  @media (prefers-color-scheme: dark ) {
+        .dark-img { display:block !important; width: auto !important; overflow: visible !important; float: none !important; max-height:inherit !important; max-width:inherit !important; line-height: auto !important; margin-top:0px !important; visibility:inherit !important; }
+        .light-img { display:none; display:none !important; }
+        .bg-header{
+        background: #000 !important;
+        }
+        } */
+        /* 2nd suport darkmode */
+        /* Shows Dark Mode-Only Content, Like Images */
+        /* Shows Dark Mode-Only Content, Like Images */
+        /* [data-ogsc] .dark-img { display:block !important; width: auto !important; overflow: visible !important; float: none !important; max-height:inherit !important; max-width:inherit !important; line-height: auto !important; margin-top:0px !important; visibility:inherit !important; }
+        */
+        /* Hides Light Mode-Only Content, Like Images */
+        /*       [data-ogsc] .light-img { display:none; display:none !important; }
+        */
+        /* for dark mode style end*/
+        @media screen and (max-width: 530px) {
+            .unsub {
+                display: block;
+                padding: 8px;
+                margin-top: 14px;
+                border-radius: 6px;
+                background-color: #fff;
+                text-decoration: none !important;
+                font-weight: bold;
+            }
+            .col-lge {
+                max-width: 100% !important;
+            }
+            .col-sml {
+                max-width: 100% !important;
+                text-align: center !important;
+                padding-bottom: 35px;
+            }
+            .col-lg-6{
+                max-width: 100% !important;
+                text-align: center !important;
+            }.col-lg-4{
+                max-width: 100% !important;
+                text-align: center !important;
+            }
+            .heading-h2 span{
+                letter-spacing: 2px !important;
+                margin: 0 5px !important;
+            }
+            .heading-h2{
+                font-size: 9px !important;
+                line-height: 16px !important;
+            }
+            .w100p { width: 100% !important; }
+            .text-center{
+                text-align: center !important;
+            }
+            .ml-0{
+                margin-left: 0 !important;
+            }
+            .mr-0{
+                margin-right: 0 !important;
+            }
+            .header-bg{
+                background: transparent !important;
+                padding-bottom: 10px !important;
+            }
+            .pt-0{
+                padding-top: 0 !important;
+            }
+            .pt-25{
+                padding-top: 25px !important;
+            }
+        }
+        @media screen and (min-width: 531px) {
+            .col-sml {
+                max-width: 28.9% !important;
+                padding: 0 12px 40px 12px !important;
+            }
+            .col-lg-4 {
+                max-width: 33.33% !important;
+            }
+            .col-lge {
+                max-width: 73% !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin:0;padding:0;word-spacing:normal;background-color:#EEEEEE;">
+    <div role="article" aria-roledescription="email" lang="en" style="text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color:#EEEEEE;">
+        <table role="presentation" style="width:100%;border:none;border-spacing:0;" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td align="center" style="padding:0;">
+                        <!--[if mso]>
+                        <table role="presentation" align="center" style="width:600px;">
+                            <tr>
+                                <td>
+                                <![endif]-->
+                                    <table role="presentation" style="width:100%;max-width:600px;border:none;border-spacing:0;text-align:left;font-size:16px;line-height:22px;color:#000;" class="bg-header" bgcolor="#fff">
+                                        <!-- logo start -->
+                                        <tr>
+                                            <td valign="top" align="center" style="padding:20px 0 15px 0;">
+                                                <a href="#"><img src="https://i.postimg.cc/3wPdZjSB/Kerem-News-Letter-1-copy.png" alt="img" class="img-fluid" width="71px" height="77px"></a>
+                                            </td>
+                                        </tr>
+                                        <!-- logo end -->
+                                        <!-- banner start -->
+                                        <tr>
+                                            <td>
+                                                <!--[if gte mso 9]>
+                                                <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                                <v:fill type="frame" src="https://i.postimg.cc/bvYKF4MY/banner2.png" />
+                                                <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                                <![endif]-->
+                                                    <div>
+                                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td style="background: url('https://i.postimg.cc/bvYKF4MY/banner2.png') #fff; background-size:cover; background-position:bottom center; padding:130px 0 70px 0;" valign="top" align="center">
+                                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                        <tr>
+                                                                            <td align="center" valign="top" style="padding:0 20px;">
+                                                                                <h1 style="color:#fff;font-size: 21px;line-height: 28px;margin: 0;">EXCLUSIVE SALE OF A PROPERTY INCL. LAND IN <br> DURLACH / KARLSRUHE GERMANY</h1>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="center" width="92" style="padding-top:70px;">
+                                                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                                                    <tr>
+                                                                                        <td bgcolor="#0d0d0e" style="color: #ffffff;padding: 2px 10px;background: #0d0d0e;border-radius: 30px;text-align: center;">
+                                                                                            <a href="#" target="_blank" style="text-decoration: none;font-style: normal;font-weight: 800;font-size: 14px;line-height: 25px;color: #fff; display: inline-block;">READ MORE</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                <!--[if gte mso 9]>
+                                                </v:textbox>
+                                                </v:rect>
+                                            <![endif]-->
+                                            </td>
+                                        </tr>
+                                        <!-- banner end -->
+                                        <!-- content area start -->
+                                        <tr>
+                                            <td valign="top" align="center">
+                                                <table class="container" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="w100p">
+                                                    <tr>
+                                                        <td align="center" valign="top">
+                                                            <!--[if gte mso 9]>
+                                                            <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                                            <v:fill type="frame" src="https://i.postimg.cc/ncCKT208/shadow.png" />
+                                                            <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                                            <![endif]-->
+                                                                <div>
+                                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                        <tr>
+                                                                            <td style="background: url('https://i.postimg.cc/ncCKT208/shadow.png') #fff;background-size: 365px;background-repeat: no-repeat;background-position: bottom left;padding: 45px 10px 90px 10px">
+                                                                                <p style="font-size: 17.36px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;">Dear [ADDRESSED PARTNER], <br>
+                                                                                Are you looking for a building with good and unlimited development potential, a beautiful location, and excellent connections to the city? Then you are at the right address with us. The purpose of the Durlach Exclusive property is to offer a  prestigious building for owner-occupancy or capital investment. Our exclusive property, built in 1986, is an excellent investment and can be used to build a hotel, office, hospital, doctor's office, retirement home, furniture store, store, warehouse, restaurant, bar, or any other activity of your choice.</p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            <!--[if gte mso 9]>
+                                                            </v:textbox>
+                                                            </v:rect>
+                                                        <![endif]-->
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- content area end -->
+                                        <!-- 2 item area start -->
+                                        <tr>
+                                            <td style="padding:0;" align="center" valign="top">
+                                                <!--[if (gte mso 9)|(IE)]>
+                                                <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;"style="padding: 0">
+                                                    <tr>
+                                                        <td valign="middle" style="width:  309.8px;" style="padding: 0">
+                                                        <![endif]-->
+                                                            <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                                <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 309.8px;padding:0;">
+                                                                    <tr>
+                                                                        <td align="center" valign="top" style="padding: 0">
+                                                                            <img src="https://i.postimg.cc/BQSZG7Ry/img-1.png" class="img-fluid" width="313px" height="209px">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            <!--[if (gte mso 9)|(IE)]>
+                                                        </td><td valign="middle" style="width:298px;" style="padding: 0">
+                                                        <![endif]-->
+                                                            <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                                <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:286px;padding:0;">
+                                                                    <tr>
+                                                                        <td align="left" valign="top" style="padding: 0">
+                                                                        <!--[if gte mso 9]>
+                                                                        <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                                                        <v:fill type="frame" src="https://i.postimg.cc/C17tC7JB/shadow-2.png" />
+                                                                        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                                                        <![endif]-->
+                                                                            <div>
+                                                                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 0">
+                                                                                    <tr>
+                                                                                        <td style="background: url('https://i.postimg.cc/C17tC7JB/shadow-2.png') #fff;background-size:cover;background-position:bottom center;padding: 87px 0;" valign="top" align="center">
+                                                                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                                                <tr>
+                                                                                                    <td align="center" width="92" style="padding:0px;">
+                                                                                                        <table border="0" cellspacing="0" cellpadding="0">
+                                                                                                            <tr>
+                                                                                                                <td bgcolor="#0d0d0e" style="color: #ffffff;padding: 5px 15px;background: #0d0d0e;border-radius: 30px;text-align: center;">
+                                                                                                                    <a href="#" target="_blank" style="text-decoration: none;font-style: normal;font-weight: 800;font-size: 14px;line-height: 25px;color: #fff; display: inline-block;">READ MORE</a>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        <!--[if gte mso 9]>
+                                                                        </v:textbox>
+                                                                        </v:rect>
+                                                                    <![endif]-->
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <!--[if (gte mso 9)|(IE)]>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        <![endif]-->
+                                        </td>
+                                    </tr>
+                                    <!-- 2 item area end -->
+                                    <!-- content area start -->
+                                    <tr>
+                                        <td valign="top" align="center">
+                                            <table class="container" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="w100p">
+                                                <tr>
+                                                    <td align="center" valign="top">
+                                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td style="padding: 40px 15px 40px 15px;" valign="top" align="center">
+                                                                    <p style="font-size: 17.36px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;">Additionally, it has the potential to be used in a gym, consulate, municipal administration building, or as an asylum shelter that requires an open multi-purpose design. The property consists of 4 floors and currently has a building permit where 51 rooms can be opened as a hotel in the future. Also included in this building permit is an increase in floor space by adding an additional floor, so even more space can be created! This is a prime opportunity to add two high end penthouse apartments to the building.</p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- content area end -->
+                                    <!-- 2 item area start -->
+                                    <tr>
+                                        <td style="padding:0;" align="center" valign="top">
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;"style="padding: 0">
+                                                <tr>
+                                                    <td valign="middle" style="width: 286px;" style="padding: 0">
+                                                    <![endif]-->
+                                                        <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                            <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:286px;padding:0;">
+                                                                <tr>
+                                                                    <td align="left" valign="top" style="padding: 0">
+                                                                        <!--[if gte mso 9]>
+                                                                        <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                                                        <v:fill type="frame" src="https://i.postimg.cc/C17tC7JB/shadow-2.png" />
+                                                                        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                                                        <![endif]-->
+                                                                            <div>
+                                                                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 0">
+                                                                                    <tr>
+                                                                                        <td style="background: url('https://i.postimg.cc/C17tC7JB/shadow-2.png') #fff;background-size:cover;background-position:right center;padding: 87px 0;" valign="top" align="center">
+                                                                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                                                <tr>
+                                                                                                    <td align="center" width="92" style="padding:0px;">
+                                                                                                        <table border="0" cellspacing="0" cellpadding="0">
+                                                                                                            <tr>
+                                                                                                                <td bgcolor="#0d0d0e" style="color: #ffffff;padding: 5px 15px;background: #0d0d0e;border-radius: 30px;text-align: center;">
+                                                                                                                    <a href="#" target="_blank" style="text-decoration: none;font-style: normal;font-weight: 800;font-size: 14px;line-height: 25px;color: #fff; display: inline-block;">READ MORE</a>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        <!--[if gte mso 9]>
+                                                                        </v:textbox>
+                                                                        </v:rect>
+                                                                    <![endif]-->
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <!--[if (gte mso 9)|(IE)]>
+                                                    </td><td valign="middle" style="width: 309.8px;" style="padding: 0">
+                                                    <![endif]-->
+                                                        <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                            <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:  309.8px;padding:0;">
+                                                                <tr>
+                                                                    <td align="center" valign="top" style="padding: 0">
+                                                                        <img src="https://i.postimg.cc/8kmGzBS6/img-2.png" class="img-fluid" width="313px" height="209px">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    <!--[if (gte mso 9)|(IE)]>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    <![endif]-->
+                                    </td>
+                                </tr>
+                                <!-- 2 item area end -->
+                                <!-- content area start -->
+                                <tr>
+                                    <td valign="top" align="center">
+                                        <table class="container" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="w100p">
+                                            <tr>
+                                                <td align="center" valign="top">
+                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td style="padding: 40px 20px 40px 20px;" valign="top" align="center">
+                                                                <p style="font-size: 17.36px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;">The building has private parking, a passenger elevator, and a freight elevator. The property is located in the industrial area of Karlsruhe-Durlach and is easily accessible by car, streetcar, bus, and train due to its excellent location at a good traffic junction. The A5 freeway is only a 4-minute drive away, and bus stops are within walking distance.Karlsruhe/Baden-Baden airport is 43 km away.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!-- content area end -->
+                                <!-- 2 item area start -->
+                                <tr>
+                                    <td style="padding:0;" align="center" valign="top">
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;"style="padding: 0">
+                                            <tr>
+                                                <td valign="middle" style="width:  309.8px;" style="padding: 0">
+                                                <![endif]-->
+                                                    <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                        <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:  309.8px;padding:0;">
+                                                            <tr>
+                                                                <td align="center" valign="top" style="padding: 0">
+                                                                    <img src="https://i.postimg.cc/NjzBwswC/img-3.png" class="img-fluid" width="313px" height="209px">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <!--[if (gte mso 9)|(IE)]>
+                                                </td><td valign="middle" style="width:298px;" style="padding: 0">
+                                                <![endif]-->
+                                                    <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                        <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:286px;padding:0;">
+                                                            <tr>
+                                                                <td align="left" valign="top" style="padding: 0">
+                                                                <!--[if gte mso 9]>
+                                                                <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                                                <v:fill type="frame" src="https://i.postimg.cc/C17tC7JB/shadow-2.png" />
+                                                                <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                                                <![endif]-->
+                                                                    <div>
+                                                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 0">
+                                                                            <tr>
+                                                                                <td style="background: url('https://i.postimg.cc/C17tC7JB/shadow-2.png') #fff;background-size:cover;background-position:bottom center;padding: 87px 0;" valign="top" align="center">
+                                                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                                        <tr>
+                                                                                            <td align="center" width="92" style="padding:0px;">
+                                                                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                                                                    <tr>
+                                                                                                        <td bgcolor="#0d0d0e" style="color: #ffffff;padding: 5px 15px;background: #0d0d0e;border-radius: 30px;text-align: center;">
+                                                                                                            <a href="#" target="_blank" style="text-decoration: none;font-style: normal;font-weight: 800;font-size: 14px;line-height: 25px;color: #fff; display: inline-block;">READ MORE</a>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                <!--[if gte mso 9]>
+                                                                </v:textbox>
+                                                                </v:rect>
+                                                            <![endif]-->
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--[if (gte mso 9)|(IE)]>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                <![endif]-->
+                                </td>
+                            </tr>
+                            <!-- 2 item area end -->
+                            <!-- content area start -->
+                            <tr>
+                                <td valign="top" align="center">
+                                    <table class="container" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="w100p">
+                                        <tr>
+                                            <td align="center" valign="top">
+                                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td style="padding: 40px 15px 40px 15px;" valign="top" align="center">
+                                                            <p style="font-size: 17.36px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;">Karlsruhe is a modern city in the heart of the German state of Baden-Württemberg. It is located near <br>
+                                                                the cities of Strasbourg, Freiburg and Stuttgart and thus offers a
+                                                                variety of cultures and opportunities. <br>
+                                                                The long-term upward trend in real estate prices is due to
+                                                                Karlsruhe's strong and diverse economy, <br>
+                                                            which has consistently ranked among the top cities in international comparisons for years.  The research and development facilities with the Karlsruhe Institute of Technology (KIT) and many other institutions that accelerate the innovation process of companies show Karlsruhe as a city with high prospects for the future. </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- content area end -->
+                            <!-- 2 item area start -->
+                            <tr>
+                                <td style="padding:0; padding-bottom:55px;" align="center" valign="top">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;"style="padding: 0">
+                                        <tr>
+                                            <td valign="middle" style="width: 286px;" style="padding: 0">
+                                            <![endif]-->
+                                                <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                    <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:286px;padding:0;">
+                                                        <tr>
+                                                            <td align="left" valign="top" style="padding: 0">
+                                                                <!--[if gte mso 9]>
+                                                                <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                                                <v:fill type="frame" src="https://i.postimg.cc/C17tC7JB/shadow-2.png" />
+                                                                <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                                                <![endif]-->
+                                                                    <div>
+                                                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding: 0">
+                                                                            <tr>
+                                                                                <td style="background: url('https://i.postimg.cc/C17tC7JB/shadow-2.png') #fff;background-size:cover;background-position:right center;padding: 87px 0;" valign="top" align="center">
+                                                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                                        <tr>
+                                                                                            <td align="center" width="92" style="padding:0px;">
+                                                                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                                                                    <tr>
+                                                                                                        <td bgcolor="#0d0d0e" style="color: #ffffff;padding: 5px 15px;background: #0d0d0e;border-radius: 30px;text-align: center;">
+                                                                                                            <a href="#" target="_blank" style="text-decoration: none;font-style: normal;font-weight: 800;font-size: 14px;line-height: 25px;color: #fff; display: inline-block;">READ MORE</a>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                <!--[if gte mso 9]>
+                                                                </v:textbox>
+                                                                </v:rect>
+                                                            <![endif]-->
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--[if (gte mso 9)|(IE)]>
+                                            </td><td valign="middle" style="width:  309.8px;" style="padding: 0">
+                                            <![endif]-->
+                                                <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                    <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:  309.8px;padding:0;">
+                                                        <tr>
+                                                            <td align="center" valign="top" style="padding: 0">
+                                                                <img src="https://i.postimg.cc/28CzQ9wG/img-4.png" class="img-fluid" width="313px" height="209px">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <![endif]-->
+                            </td>
+                        </tr>
+                        <!-- 2 item area end -->
+                        
+                        <!-- content area start -->
+                        
+                        <tr>
+                            <td valign="top" align="center" style="padding:0;">
+                                <table class="container" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding:0;" class="w100p">
+                                    <tr>
+                                        <td align="center" valign="top" style="padding:0;">
+                                            <!--[if gte mso 9]>
+                                            <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                            <v:fill type="frame" src="https://i.postimg.cc/pdC4Kx2Y/shape3.png" />
+                                            <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                            <![endif]-->
+                                                <div>
+                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding:0;">
+                                                        <tr>
+                                                            <td style="background: url('https://i.postimg.cc/pdC4Kx2Y/shape3.png') #fff;background-size: 290px;background-repeat: no-repeat;background-position: top right;padding: 55px 15px 80px 15px;" valign="top" align="center">
+                                                                <p style="font-size: 17.36px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;">The value of the property comes from its location in Durlach, which is surrounded by trendy restaurants and a university. <br>  As the popularity of the neighborhood increases, so does the value of this building. We offer a negotiable price for real estate Durlach Exclusive. We are interested in negotiating with companies, investors, and states for counteroffers. Upon request, I will be happy to negotiate the price and schedule an inspection.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            <!--[if gte mso 9]>
+                                            </v:textbox>
+                                            </v:rect>
+                                        <![endif]-->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- content area end -->
+                        <!-- content area start -->
+                        
+                        <tr>
+                            <td valign="top" align="center" style="padding:0;">
+                                <table class="container" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding:0;" class="w100p">
+                                    <tr>
+                                        <td align="center" valign="top" style="padding:0;">
+                                            <!--[if gte mso 9]>
+                                            <v:rect xmlns_v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; background-color:#fff;">
+                                            <v:fill type="frame" src="https://i.postimg.cc/zBWh9DVT/bg2.png" />
+                                            <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                            <![endif]-->
+                                                <div>
+                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding:0;">
+                                                        <tr>
+                                                            <td style="background: url('https://i.postimg.cc/zBWh9DVT/bg2.png') #fff;background-size: cover;background-repeat: no-repeat;background-position: top bottom;padding: 50px 15px 35px 15px" valign="top" align="center">
+                                                                <p style="font-size:20.83px;font-weight: 800;line-height: 24px;margin: 0;color:#fff">
+                                                                    Please contact us via the form or phone number <br> <br>
+                                                                    below to find out if we can act on your
+                                                                    requirements.
+                                                                    <br> <br>
+                                                                    I look forward to their response.
+                                                                    <br> <br>
+                                                                    With kind regard
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            <!--[if gte mso 9]>
+                                            </v:textbox>
+                                            </v:rect>
+                                        <![endif]-->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- content area end -->
+                        <!-- 2 item area start -->
+                        <tr>
+                            <td style="padding:15px 0 30px 0;" align="center" valign="top">
+                                <!--[if (gte mso 9)|(IE)]>
+                                <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;"style="padding: 0">
+                                    <tr>
+                                        <td valign="middle" style="width: 286px;" style="padding: 0">
+                                        <![endif]-->
+                                            <div class="w100p" style="display:inline-block;vertical-align:middle;">
+                                                <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:286px;padding:0;">
+                                                    <tr>
+                                                        <td align="center" valign="top" style="padding: 0">
+                                                            <img src="https://i.postimg.cc/x8Jr37Cx/user.png" class="img-fluid" width="172" height="172">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                        </td><td valign="middle" style="width:  309.8px;" style="padding: 0">
+                                        <![endif]-->
+                                            <div class="w100p" style="display:inline-block;vertical-align:middle;" >
+                                                <table class="w100p" cellpadding="0" cellspacing="0" border="0" role="presentation" style="width:  309.8px;padding:0;">
+                                                    <tr>
+                                                        <td align="center" valign="top" style="padding: 0">
+                                                            <p style="font-size: 19.1px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;" class="pt-25">Ihr Ansprechpartner</p>
+                                                            <br>
+                                                            <p style="font-size: 19.1px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;">Herr Kerem Bayrak <br> Bayrak International UG <br> Schützenstraße 43 <br> 76137 Karlsruhe / Südstadt
+                                                            </p>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                </tr>
+                            </table>
+                        <![endif]-->
+                        </td>
+                    </tr>
+                    <!-- 2 item area end -->
+                    <!-- contact info start -->
+                    <tr>
+                        <td valign="top" align="center" style="padding-bottom:20px">
+                            <p style="margin:0;padding-bottom:20px"><img src="https://i.postimg.cc/y8XNRJ2J/call.png" alt="img" class="img-fluid" width="26" height="26" style="    vertical-align: middle;"> <a href="tel:+49 176 32714154" style="font-size: 19.1px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;  text-decoration: none;">+49 176 32714154</a></p>
+                            <p style="margin:0;"><img src="https://i.postimg.cc/9MzXsL0T/mail.png" alt="img" class="img-fluid" width="26" height="19" style="    vertical-align: middle;"> <a href="mailto: bayrakinternational@icloud.com" style="font-size: 19.1px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;    text-decoration: none;">bayrakinternational@icloud.com</a></p>
+                            
+                        </td>
+                    </tr>
+                    <!-- contact info end -->
+                    
+                    
+                </table>
+                <!--[if mso]>
+            </td>
+        </tr>
+    </table>
+<![endif]-->
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
