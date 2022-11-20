@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>HTML Email</title>
+        <!--[if mso]>
+        <style>
+        table {border-collapse:collapse;border-spacing:0;border:none;margin:0;}
+        body{
+        background: #EEEEEE !important;
+        color:#59585b !important;
+        font-family: 'Roboto', sans-serif !important;
+        }
+        </style>
+        <noscript>
+        <xml>
+        <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        </noscript>
+    <![endif]-->
+        <style>
+            body{
+                font-family: 'Open Sans', sans-serif !important;
+                background: #EEEEEE !important;
+                color:#59585b !important;
+                border: none !important;
+            }
+            html,
+            body {
+                margin: 0 auto !important;
+                padding: 0 !important;
+                height: 100% !important;
+                width: 100% !important;
+            }
+            /* What it does: Stops email clients resizing small text. */
+            * {
+                -ms-text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+                font-family: 'Open Sans', sans-serif !important;
+            }
+            /* What it does: Centers email on Android 4.4 */
+            div[style*="margin: 16px 0"] {
+                margin:0 !important;
+            }
+            /* What it does: Stops Outlook from adding extra spacing to tables. */
+            table,
+            td {
+                mso-table-lspace: 0pt !important;
+                mso-table-rspace: 0pt !important;
+            }
+            /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+            table {
+                border-spacing: 0 !important;
+                border-collapse: collapse !important;
+                table-layout: fixed !important;
+                margin: 0 auto !important;
+            }
+            table table table {
+                table-layout: auto;
+            }
+            /* for dark mode style end*/
+            @media screen and (max-width: 530px) {
+                .unsub {
+                    display: block;
+                    padding: 8px;
+                    margin-top: 14px;
+                    border-radius: 6px;
+                    background-color: #fff;
+                    text-decoration: none !important;
+                    font-weight: bold;
+                }
+                .col-lge {
+                    max-width: 100% !important;
+                }
+                .col-sml {
+                    max-width: 100% !important;
+                    text-align: center !important;
+                    padding-bottom: 35px;
+                }
+                .col-lg-6{
+                    max-width: 100% !important;
+                    text-align: center !important;
+                }.col-lg-4{
+                    max-width: 100% !important;
+                    text-align: center !important;
+                }
+                .heading-h2 span{
+                    letter-spacing: 2px !important;
+                    margin: 0 5px !important;
+                }
+                .heading-h2{
+                    font-size: 9px !important;
+                    line-height: 16px !important;
+                }
+                .w100p { width: 100% !important; }
+                .text-center{
+                    text-align: center !important;
+                }
+                .ml-0{
+                    margin-left: 0 !important;
+                }
+                .mr-0{
+                    margin-right: 0 !important;
+                }
+                .header-bg{
+                    background: transparent !important;
+                    padding-bottom: 10px !important;
+                }
+                .pt-0{
+                    padding-top: 0 !important;
+                }
+                .pt-25{
+                    padding-top: 25px !important;
+                }
+                .img-fluid{
+                    max-width: 100%;
+                    width: 100%;
+                    height: auto;
+                }
+                .bg-100{
+                    background-size: 100% !important;
+                }
+              
+            }
+            @media screen and (min-width: 531px) {
+                .col-sml {
+                    max-width: 28.9% !important;
+                    padding: 0 12px 40px 12px !important;
+                }
+                .col-lg-4 {
+                    max-width: 33.33% !important;
+                }
+                .col-lge {
+                    max-width: 73% !important;
+                }
+            }
+            
+        </style>
+    </head>
+    <body style="margin:0;padding:0;word-spacing:normal;background-color:#EEEEEE;">
+        <div role="article" aria-roledescription="email" lang="en" style="text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color:#EEEEEE;">
+            <table role="presentation" style="width:100%;border:none;border-spacing:0;" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td align="center" style="padding:0;">
+                        <!--[if mso]>
+                        <table role="presentation" align="center" style="width:600px;">
+                            <tr>
+                                <td>
+                                <![endif]-->
+                                    <table role="presentation" style="width:100%;max-width:600px;border:none;border-spacing:0;text-align:left;font-size:16px;line-height:22px;color:#000;" class="bg-header darkmode" bgcolor="#fff">
+
+
+
+
+                    <!-- contact info start -->
+                    <tr>
+                        <td valign="top" align="center" style="padding:20px 0" class="darkmode text-000">
+                            <p style="margin:0;padding-bottom:20px"><img src="https://i.postimg.cc/y8XNRJ2J/call.png" class="darkmode-img" alt="img"  width="26" height="26" style="    vertical-align: middle;"> <a href="tel:+49 176 32714154" style="font-size: 19.1px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;  text-decoration: none;">+49 176 32714154</a></p>
+                            <p style="margin:0;"><img src="https://i.postimg.cc/9MzXsL0T/mail.png" alt="img" class="darkmode-img" width="26" height="19" style="    vertical-align: middle;"> <a href="mailto: bayrakinternational@icloud.com" style="font-size: 19.1px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;    text-decoration: none;">bayrakinternational@icloud.com</a></p>
+                            
+                        </td>
+                    </tr>
+                    <!-- contact info end -->
+                    <!-- contact info start -->
+                    <tr>
+                        <td valign="top" align="center" style="padding-bottom:20px" class="darkmode text-000">
+                            <p style="margin:0;padding-bottom:20px"><a href="https://bayrakrealestate.com/" style="font-size: 19.1px;font-weight: 700;line-height: 24px;margin: 0;color:#000000;  text-decoration: none;">www.bayrakrealestate.com</a></p>
+                            <p style="margin:0;"><a href="https://wa.link/79eekj"><img src="https://i.postimg.cc/MZNJ1pdm/phone-circle-green-512-copy.png" alt="WhatsApp" width="30" height="30"></a>
+                                <a href="mailto: bayrakinternational@icloud.com" style="margin-left:15px;"><img src="https://i.postimg.cc/vB529GB3/blue-email-box-circle-png-transparent-icon-2.png" alt="img" width="30" height="30"></a></p>
+
+                            </td>
+                        </tr>
+                        <!-- contact info end -->
+                        <!-- contact info start -->
+                        <tr>
+                            <td valign="top" align="center" style="padding:20px" class="darkmode text-000">
+                                <p style="margin:0;padding-bottom:20px;padding-top: 15px;border-top: 3px solid #000;border-bottom: 3px solid #000;" class="darkmode-border"><a href="https://bayrakrealestate.com/" style="font-size: 32px;font-weight: 700;line-height: 32px;margin: 0;color:#000000;  text-decoration: none;"><img src="https://i.postimg.cc/bY0xnXCk/arrow.png" alt="img" width="38" height="27.45">EXPOSÉ FILE</a></p>
+
+                            </td>
+                        </tr>
+                        <!-- contact info end -->
+
+
+                        <!-- contact info start -->
+                        <tr>
+                            <td valign="top" align="center" style="padding-bottom:20px" class="darkmode">
+                                <p style="margin:0;"> <a href="#"><img src="https://i.postimg.cc/3wPdZjSB/Kerem-News-Letter-1-copy.png" alt="img" width="71px" height="77px"></a></p>
+
+                            </td>
+                        </tr>
+                        <!-- contact info end -->
+
+
+
+
+                    </table>
+                <!--[if mso]>
+            </td>
+        </tr>
+    </table>
+<![endif]-->
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
